@@ -1,0 +1,15 @@
+.NavBar{
+    padding: 1%;
+    background-color: #BEADFA;
+}
+.link{
+    color: black !important;
+}
+.link:hover{
+    color: white !important;
+}
+.logo{
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 200% !important;
+    letter-spacing: 2px !important;
+}
