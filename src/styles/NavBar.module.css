@@ -4,8 +4,13 @@
 }
 .link{
     color: black !important;
+    padding: 0.5rem 1rem;
+    text-decoration: none !important;
 }
 .link:hover{
+    color: white !important;
+}
+.active{
     color: white !important;
 }
 .logo{
