@@ -2,12 +2,57 @@ import React from 'react'
 import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap';
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
+import Avatar from './Avatar';
+import axios from 'axios';
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
-  const loggedInIcons = <>{currentUser?.username}
+  const handleSignOut = async() => {
+    try{
+      await axios.post("/dj-rest-auth/logout/");
+      setCurrentUser(null);
+    }catch (err){
+      console.log(err)
+    }
+  }
+
+  const addPostIcon = <>
+    <NavLink 
+      to="/posts/add"
+      className={styles.link} 
+      activeClassName={styles.active}
+    ><i class="fa-solid fa-plus"></i>add post</NavLink>
+  </>
+
+  const loggedInIcons = <>
+  <NavLink 
+      to="/liked"
+      className={styles.link} 
+      activeClassName={styles.active}
+    ><i class="fa-solid fa-heart"></i>liked</NavLink>
+
+  <NavLink 
+      to="/feed"
+      className={styles.link} 
+      activeClassName={styles.active}
+    >feed</NavLink>
+  
+  <NavLink 
+      to="/"
+      onClick={handleSignOut}
+      className={styles.link} 
+    >sign out</NavLink>
+
+  <NavLink 
+      to="/profiles/{currentUser?.profile_id}"
+      className={styles.link} 
+    >
+      <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={40}/>
+    </NavLink>
+  
   <NavDropdown title="More" id="basic-nav-dropdown">
     <NavDropdown.Item>Action</NavDropdown.Item>
     <NavDropdown.Item>Another action</NavDropdown.Item>
@@ -37,6 +82,7 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
+                {currentUser && addPostIcon}
                 <NavLink 
                   exact 
                   to="/" 
@@ -45,10 +91,6 @@ const NavBar = () => {
                 >Home</NavLink>
                 {currentUser? loggedInIcons:loggedOutIcons}
                 </Nav>
-                {/* <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-success">Search</Button>
-                </Form> */}
             </Navbar.Collapse>
         </Container>
     </Navbar>
