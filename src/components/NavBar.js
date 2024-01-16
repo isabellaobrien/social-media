@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
@@ -24,7 +24,7 @@ const NavBar = () => {
       to="/posts/add"
       className={styles.link} 
       activeClassName={styles.active}
-    ><i class="fa-solid fa-plus"></i>add post</NavLink>
+    ><i class="fa-solid fa-plus"></i> add post</NavLink>
   </>
 
   const loggedInIcons = <>
@@ -32,33 +32,27 @@ const NavBar = () => {
       to="/liked"
       className={styles.link} 
       activeClassName={styles.active}
-    ><i class="fa-solid fa-heart"></i>liked</NavLink>
+    ><i class="fa-regular fa-heart"></i> liked</NavLink>
 
   <NavLink 
       to="/feed"
       className={styles.link} 
       activeClassName={styles.active}
-    >feed</NavLink>
+    ><i class="fa-solid fa-newspaper"></i> feed</NavLink>
   
   <NavLink 
       to="/"
       onClick={handleSignOut}
       className={styles.link} 
-    >sign out</NavLink>
+    ><i class="fa-solid fa-right-from-bracket"></i> sign out</NavLink>
 
   <NavLink 
       to="/profiles/{currentUser?.profile_id}"
-      className={styles.link} 
+      className={styles.profile} 
     >
       <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={40}/>
     </NavLink>
-  
-  <NavDropdown title="More" id="basic-nav-dropdown">
-    <NavDropdown.Item>Action</NavDropdown.Item>
-    <NavDropdown.Item>Another action</NavDropdown.Item>
-    <NavDropdown.Item>Something</NavDropdown.Item>
-    <NavDropdown.Item>Separated link</NavDropdown.Item>
-  </NavDropdown>
+
   </>
 
   const loggedOutIcons = <>
@@ -75,25 +69,24 @@ const NavBar = () => {
   </>
   return (
     <Navbar className={styles.NavBar} expand="lg">
-        <Container>
-            <NavLink to="/">
-              <Navbar.Brand className={styles.logo}>Logo</Navbar.Brand>
-            </NavLink>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                {currentUser && addPostIcon}
-                <NavLink 
-                  exact 
-                  to="/" 
-                  className={styles.link} 
-                  activeClassName={styles.active}
-                >Home</NavLink>
-                {currentUser? loggedInIcons:loggedOutIcons}
-                </Nav>
-            </Navbar.Collapse>
-        </Container>
+        <NavLink to="/">
+          <Navbar.Brand className={styles.logo}>Logo</Navbar.Brand>
+        </NavLink>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+            {currentUser && addPostIcon}
+            <NavLink 
+              exact 
+              to="/" 
+              className={styles.link} 
+              activeClassName={styles.active}
+            ><i class="fa-solid fa-house"></i> home</NavLink>
+            {currentUser? loggedInIcons:loggedOutIcons}
+            </Nav>
+        </Navbar.Collapse>
     </Navbar>
+
   )
 }
 
