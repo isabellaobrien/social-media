@@ -1,17 +1,27 @@
-.container{
-    width: 80%;
-    margin: auto;
-    padding-top: 3rem;
-}
-
 .post{
     width: 100%;
-    margin: auto;
     border: none;
 }
 
 .dots{
+    display: inline-block;
     font-size: 50px;
 }
+
+.profile{
+    padding-right: 5%;
+    color: black;
+    text-decoration: none;
+}
+
+.profile:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.icons{
+    color: fuchsia;
+}
+
 
 

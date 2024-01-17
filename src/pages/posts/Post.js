@@ -27,13 +27,17 @@ const Post = (props) => {
   return (
     <div className={styles.container}>
         <Card className={styles.post}>
-            <Link to={`/profiles/${profile_id}`}>
-                <Avatar src={profile_image} height={55}/>
-                {owner}
-            </Link>
-            <div className={styles.dots}>
+            <div className={styles.next}>
+              <Link to={`/profiles/${profile_id}`} className={styles.profile}>
+                  <Avatar src={profile_image} height={55}/>
+                  {owner}
+              </Link>
+              <div className={styles.dots}>
                 {is_owner && postPage && "..."}
+              </div>
             </div>
+          
+            
             <Link to={`/posts/${id}`}>
                 <Card.Img alt={title} src={image} />
             </Link>
@@ -58,7 +62,7 @@ const Post = (props) => {
             </OverlayTrigger> }
 
             {likes_count}
-            <Link to={`/posts/${id}`}>
+            <Link to={`/posts/${id}`} className={styles.icons}>
                 <i class="fa-regular fa-comment"></i>
             </Link>
             {comments_count}

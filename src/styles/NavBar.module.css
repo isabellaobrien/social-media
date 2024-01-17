@@ -1,27 +1,35 @@
-.NavBar{
-    background-color: #BEADFA;
-}
+/* .NavBar{
+    background-color: #CB997E;
+} */
 .link{
     color: black !important;
-    padding: 2rem 0.5rem 2rem 1rem;
+    padding-top: 1rem;
+    padding-right: 0.5rem;
+    padding-left: 1rem;
     text-decoration: none !important;
 }
 .profile{
     color: black;
-    padding-top: 1.5rem;
+    padding-top: 0.5rem;
     padding-right: 2rem;
     text-decoration: none;
 }
+
+.profile:hover{
+    color: black;
+    text-decoration: underline !important;
+}
 .link:hover{
-    color: white !important;
+    text-decoration: underline !important;
 }
 .active{
-    color: white !important;
+    text-decoration: underline !important;
 }
 .logo{
-    font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 200% !important;
-    letter-spacing: 2px !important;
+    font-family: 'Sacramento', cursive !important;
+    font-size: 400% !important;
+    color: #CB997E !important;
+
 }
 
 

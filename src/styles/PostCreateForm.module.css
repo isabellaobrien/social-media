@@ -1,6 +1,36 @@
 .container{
-    background-color: orange;
-    padding: 5%;
-    width: 80%;
+    background-color: #A5A58D;
+    padding: 10%;
+}
+.center{
+    position: static !important;
     margin: auto;
+}
+
+.title{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 150%;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+
+.btn{
+    background-color: #7B403B;
+    color: white;
+    border: brown;
+}
+.btn:hover{
+    background-color: #EDDCD2;
+    color: black;
+}
+
+.btn_container{
+    display: inline-block;
+    padding-right: 2rem;
+}
+
+.btn_center{
+    text-align: center;
+    padding-top: 1rem;
 }

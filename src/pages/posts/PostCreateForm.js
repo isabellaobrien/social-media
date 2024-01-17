@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import {Form, Button, Alert} from "react-bootstrap"
+import {Form, Button, Alert, Col, Container} from "react-bootstrap"
 import styles from "../../styles/PostCreateForm.module.css";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../api/axiosDefault';
@@ -56,7 +56,9 @@ const PostCreateForm = () => {
 
 
   return (
-    <div className={styles.container}>
+    <Col md={6} className={styles.center}>
+    <Container className={styles.container}>
+    <p className={styles.title}>Create a post</p>
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="title">
                 <Form.Label>Title</Form.Label>
@@ -98,15 +100,22 @@ const PostCreateForm = () => {
                 />
             </Form.Group>
 
-            <Button type="submit">
-                post
-            </Button>
-
-            <Button onClick={() => history.goBack()}>
-                cancel
-            </Button>
+            <div className={styles.btn_center}>
+                <div className={styles.btn_container}>
+                    <Button className={styles.btn} onClick={() => history.goBack()}>
+                        cancel
+                    </Button>
+                </div>
+                <div className={styles.btn_container}>
+                    <Button type="submit" className={styles.btn}>
+                        post
+                    </Button>
+                </div>
+            </div>
+            
         </Form>
-    </div>
+        </Container>
+        </Col>
   )
 }
 

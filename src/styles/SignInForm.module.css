@@ -2,10 +2,10 @@
     background-color: #EDDCD2;
     padding: 10%;
 }
-
-/* .img{
-    text-align: center;
-} */
+.center{
+    position: static !important;
+    margin: auto;
+}
 
 .title{
     font-family: 'Bebas Neue', sans-serif;
