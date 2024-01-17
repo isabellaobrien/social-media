@@ -1,0 +1,17 @@
+.container{
+    width: 80%;
+    margin: auto;
+    padding-top: 3rem;
+}
+
+.post{
+    width: 100%;
+    margin: auto;
+    border: none;
+}
+
+.dots{
+    font-size: 50px;
+}
+
+
