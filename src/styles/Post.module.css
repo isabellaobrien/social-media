@@ -19,8 +19,15 @@
     text-decoration: none;
 }
 
-.icons{
-    color: fuchsia;
+
+.icon{
+    color: black;
+    display: inline-block;
+    padding-right: 1rem;
+}
+
+.link{
+    color: black;
 }
 
 

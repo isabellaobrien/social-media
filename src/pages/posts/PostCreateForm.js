@@ -48,6 +48,7 @@ const PostCreateForm = () => {
             history.push(`/posts/${data.id}`)
         }catch (err){
             console.log(err);
+            console.log(err.response)
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
       }

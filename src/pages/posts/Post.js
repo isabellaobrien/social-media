@@ -4,6 +4,7 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from "../../styles/Post.module.css"
 import Avatar from '../../components/Avatar';
 import { Link } from "react-router-dom";
+import { axiosRes } from "../../api/axiosDefault";
 
 const Post = (props) => {
     const {
@@ -19,10 +20,45 @@ const Post = (props) => {
         image,
         updated_at,
         postPage,
+        setPosts,
       } = props;
 
       const currentUser = useCurrentUser();
       const is_owner = currentUser?.username === owner;
+
+      const handleLike = async () => {
+        try{
+          const {data} = await axiosRes.post("/likes/", {post : id});
+          setPosts((prevPosts) => ({
+            ...prevPosts,
+            results: prevPosts.results.map((post) => {
+              return post.id === id ? 
+              {...post, likes_count: post.likes_count + 1, like_id: data.id} :
+              post
+            })
+          }))
+        }catch (err){
+          console.log(err)
+        }
+
+      }
+
+      const handleUnlike = async () => {
+        try {
+          await axiosRes.delete(`/likes/${like_id}/`);
+          setPosts((prevPosts) => ({
+            ...prevPosts,
+            results: prevPosts.results.map((post) => {
+              return post.id === id
+                ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+                : post;
+            }),
+          }));
+        } catch (err) {
+          console.log(err);
+        }
+      };
+    
 
   return (
     <div className={styles.container}>
@@ -43,6 +79,7 @@ const Post = (props) => {
             </Link>
 
             <Card.Body className={styles.body}>
+            <div className={styles.icon}>
                 {is_owner? (
             <OverlayTrigger
               placement="top"
@@ -50,9 +87,9 @@ const Post = (props) => {
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
-          ): like_id? <span onClick={() => {}}>
+          ): like_id? <span onClick={handleUnlike}>
             <i class="fa-solid fa-heart"></i>
-          </span> : currentUser? <span onClick={() => {}}>
+          </span> : currentUser? <span onClick={handleLike}>
             <i class="fa-regular fa-heart"></i>
           </span>: <OverlayTrigger
               placement="top"
@@ -61,11 +98,18 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger> }
 
+            
             {likes_count}
-            <Link to={`/posts/${id}`} className={styles.icons}>
-                <i class="fa-regular fa-comment"></i>
-            </Link>
-            {comments_count}
+            </div>
+            
+          
+            <div className={styles.icon}>
+              <Link to={`/posts/${id}`} className={styles.link}>
+                  <i class="fa-regular fa-comment"></i>
+              </Link>
+              {comments_count}
+            </div>
+            
 
                 <Card.Title>{title}</Card.Title>
 
