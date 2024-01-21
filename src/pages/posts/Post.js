@@ -28,9 +28,9 @@ const Post = (props) => {
       const is_owner = currentUser?.username === owner;
       const history = useHistory();
 
-      const handleEdit = ()=>{
-        history.push(`${id}/edit`);
-      }
+      const handleEdit = () => {
+        history.push(`/posts/${id}/edit`);
+      };
 
       const handleDelete = async () => {
         try{
@@ -84,7 +84,7 @@ const Post = (props) => {
                   {owner}
               </Link>
               <div className={styles.more}>
-                {is_owner && postPage && (<Dropdown drop="up">
+                {is_owner && (<Dropdown drop="up">
               <Dropdown.Toggle className={styles.dropdown} id="dropdown-basic">
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
