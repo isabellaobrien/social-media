@@ -1,10 +1,11 @@
 import React from 'react'
-import {Card, Tooltip, OverlayTrigger} from "react-bootstrap"
+import {Card, Tooltip, OverlayTrigger, Dropdown} from "react-bootstrap"
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from "../../styles/Post.module.css"
 import Avatar from '../../components/Avatar';
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefault";
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Post = (props) => {
     const {
@@ -25,6 +26,20 @@ const Post = (props) => {
 
       const currentUser = useCurrentUser();
       const is_owner = currentUser?.username === owner;
+      const history = useHistory();
+
+      const handleEdit = ()=>{
+        history.push(`${id}/edit`);
+      }
+
+      const handleDelete = async () => {
+        try{
+          await axiosRes.delete(`posts/${id}/`);
+          history.goBack();
+        }catch (err){
+          console.log(err)
+        }
+      }
 
       const handleLike = async () => {
         try{
@@ -68,8 +83,21 @@ const Post = (props) => {
                   <Avatar src={profile_image} height={55}/>
                   {owner}
               </Link>
-              <div className={styles.dots}>
-                {is_owner && postPage && "..."}
+              <div className={styles.more}>
+                {is_owner && postPage && (<Dropdown drop="up">
+              <Dropdown.Toggle className={styles.dropdown} id="dropdown-basic">
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item 
+                    onClick={handleEdit}>
+                    edit <i class="fa-solid fa-pen-to-square"></i>
+                  </Dropdown.Item>
+                  <Dropdown.Item
+                    onClick={handleDelete}>
+                    delete <i class="fa-solid fa-trash"></i>
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>)}
               </div>
             </div>
           

@@ -3,13 +3,25 @@
     border: none;
 }
 
-.dots{
+.more{
+    display: inline-block !important;
+    /* font-size: 50px; */
+}
+
+.dropdown{
     display: inline-block;
-    font-size: 50px;
+    background-color: transparent !important;
+    border: none;
+    color: black;
+    background-color: #A5A58D !important;
+}
+.dropdown:focus{
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .profile{
-    padding-right: 5%;
+    padding-right: 2%;
     color: black;
     text-decoration: none;
 }
