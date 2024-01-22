@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../../api/axiosDefault';
+import styles from '../../styles/CommentCreateForm.module.css'
 
 const CommentCreateForm = (props) => {
     const {post, setPost, setComments, profile_image, profile_id} = props;
@@ -43,15 +44,17 @@ const CommentCreateForm = (props) => {
                 <Link to={`/profiles/${profile_id}`}>
                     <Avatar src={profile_image} />
                 </Link>
-                write a comment
             </Form.Label>
             <Form.Control 
+                placeholder='write a comment!'
                 type="textarea"
                 onChange={handleChange}
-                value={content} />
+                value={content} 
+            />
+                
         </Form.Group>
-        <Button variant="primary" type="submit" className="btn d-block ml-auto">
-            Submit
+        <Button  type="submit" className={`${styles.btn} btn d-block ml-auto`}>
+            comment
         </Button>
     </Form>
   )

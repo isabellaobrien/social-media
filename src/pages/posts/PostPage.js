@@ -6,6 +6,8 @@ import Post from "./Post";
 import { Container, Row, Col} from "react-bootstrap";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Comment from "../comments/Comment";
+import styles from '../../styles/PostPage.module.css'
 
 
 
@@ -21,10 +23,12 @@ function PostPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: post }] = await Promise.all([
+        const [{ data: post }, {data: comments}] = await Promise.all([
           axiosReq.get(`/posts/${id}`),
+          axiosReq.get(`/comments/?post=${id}`),
         ]);
         setPost({ results: [post] });
+        setComments(comments)
         console.log(post);
       } catch (err) {
         console.log(err);
@@ -41,7 +45,8 @@ function PostPage() {
         <Container>
           <Post {...post.results[0]} setPosts={setPost} postPage/>
         </Container>
-        <Container>
+        <Container className={styles.section}>
+          <p className={styles.title}>comments</p>
           {currentUser? (
           <CommentCreateForm
             profile_id={currentUser.profile_id}
@@ -50,6 +55,20 @@ function PostPage() {
             setPost={setPost}
             setComments={setComments}
           />) : comments.results.length? ("comments"): null}
+          {comments.results.length? (
+            comments.results.map((comment) => (
+              <Comment 
+                key={comment.id} 
+                {...comment}
+                setPost={setPost}
+                setComments={setComments}
+              />
+            ))
+          ) : currentUser ? (
+            <p>no comments yet, make one!</p>
+          ) : (
+            <p>no comments yet.</p>
+          )}
         </Container>
       </Col>
       <Col lg={4}>

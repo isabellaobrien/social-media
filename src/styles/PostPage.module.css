@@ -1,0 +1,11 @@
+.section{
+    border: 1px solid #CB997E ;
+    border-radius: 5px;
+    padding-top: 2rem;
+}
+
+.title{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 180%;
+    text-align: center;
+}

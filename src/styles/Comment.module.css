@@ -1,0 +1,29 @@
+.container{
+    padding: 1rem;
+}
+.profile{
+    padding-right: 1rem;
+    color: black;
+    text-decoration: none;
+}
+
+.profile:hover{
+    color: black;
+    text-decoration: none;
+}
+.more{
+    display: inline-block !important;
+    /* font-size: 50px; */
+}
+
+.dropdown{
+    display: inline-block;
+    background-color: transparent !important;
+    border: none;
+    color: black;
+    background-color: #A5A58D !important;
+}
+.dropdown:focus{
+    border: none !important;
+    box-shadow: none !important;
+}
