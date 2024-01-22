@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../../styles/Comment.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefault';
 import { Dropdown } from 'react-bootstrap';
+import CommentEditForm from './CommentEditForm';
 
 const Comment = (props) => {
     const {
@@ -17,7 +18,8 @@ const Comment = (props) => {
         setPost,
         setComments,
     } = props;
-
+    
+    const [showEditForm, setShowEditForm] = useState(false);
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 
@@ -48,12 +50,12 @@ const Comment = (props) => {
             {owner}
         </Link>
         <div className={styles.more}>
-            {is_owner && (<Dropdown drop="up">
+            {is_owner && !showEditForm && (<Dropdown drop="up">
               <Dropdown.Toggle className={styles.dropdown} id="dropdown-basic">
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item 
-                    onClick={() => {}}>
+                    onClick={() => setShowEditForm(true)}>
                     edit <i class="fa-solid fa-pen-to-square"></i>
                   </Dropdown.Item>
                   <Dropdown.Item
@@ -64,10 +66,22 @@ const Comment = (props) => {
               </Dropdown>)}
         </div>
         <div>
+          {showEditForm? (
+            <CommentEditForm
+              id={id} 
+              profile_id={profile_id}
+              content={content}
+              profile_image={profile_image}
+              setComments={setComments}
+              setShowEditForm={setShowEditForm}
+            />
+          ) : (
             <p>{content}</p>
+          )}
         </div>
         <hr/>
         <small>{updated_at}</small>
+        
     </div>
   )
 }

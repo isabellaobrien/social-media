@@ -47,7 +47,7 @@ const CommentCreateForm = (props) => {
             </Form.Label>
             <Form.Control 
                 placeholder='write a comment!'
-                type="textarea"
+                as="textarea"
                 onChange={handleChange}
                 value={content} 
             />
