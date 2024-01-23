@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Avatar from '../../components/Avatar';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../../styles/Comment.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
-import { axiosRes } from '../../api/axiosDefault';
+import { axiosRes, axiosReq } from '../../api/axiosDefault';
 import { Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import CommentEditForm from './CommentEditForm';
+import CommentReplyForm from './CommentReplyForm';
+import Reply from './Reply';
+
 
 const Comment = (props) => {
     const {
@@ -19,11 +22,30 @@ const Comment = (props) => {
         setComments,
         comment_like_id,
         comment_likes_count,
+        comment_reply_count,
     } = props;
     
     const [showEditForm, setShowEditForm] = useState(false);
+    const [showReplyForm, setShowReplyForm] = useState(false);
+    const [reply, setReply] = useState({results: []})
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+
+    useEffect(() => {
+      const handleMount = async () => {
+        try {
+          const [{ data: reply }] = await Promise.all([
+            axiosReq.get(`/comment-reply/?comment=${id}`),
+          ]);
+          setReply(reply)
+          console.log(reply);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+  
+      handleMount();
+    }, [id]);
 
     const handleDelete = async () => {
         try{
@@ -137,9 +159,43 @@ const Comment = (props) => {
             
             {comment_likes_count}
           </div>
+          <div className={styles.icon} onClick={() => setShowReplyForm(true)}>
+              <i class="fa-solid fa-reply fa-flip-horizontal"></i>
+              {comment_reply_count}
+            </div>
           <br/>
           <small>{updated_at}</small>
-        
+          {currentUser && showReplyForm? (
+          <CommentReplyForm
+            profile_id={profile_id}
+            profile_image={profile_image}
+            comment={id}
+            setComments={setComments}
+            setReply={setReply}
+          />) : reply.results.length? (
+            reply.results.map((rep) => (
+              <Reply 
+                key={rep.id} 
+                {...rep}
+                setComments={setComments}
+                setReply={setReply}
+              />
+            ))
+          ): null}
+          {/* {reply.results.length? (
+            reply.results.map((rep) => (
+              <Reply 
+                key={rep.id} 
+                {...rep}
+                setComments={setComments}
+                setReply={setReply}
+              />
+            ))
+          ) : currentUser ? (
+            <p>no replies yet, make one!</p>
+          ) : (
+            <p>no comments yet.</p>
+          )} */}
     </div>
   )
 }
