@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../../styles/Comment.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosRes } from '../../api/axiosDefault';
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import CommentEditForm from './CommentEditForm';
 
 const Comment = (props) => {
@@ -17,6 +17,8 @@ const Comment = (props) => {
         id,
         setPost,
         setComments,
+        comment_like_id,
+        comment_likes_count,
     } = props;
     
     const [showEditForm, setShowEditForm] = useState(false);
@@ -43,6 +45,39 @@ const Comment = (props) => {
             console.log(err)
         }
     }
+
+    const handleCommentLike = async () => {
+      try{
+        const {data} = await axiosRes.post("/comment-likes/", {comment : id});
+        setComments((prevComments) => ({
+          ...prevComments,
+          results: prevComments.results.map((comment) => {
+            return comment.id === id ? 
+            {...comment, comment_likes_count: comment_likes_count + 1, comment_like_id: data.id} :
+            comment
+          })
+        }))
+      }catch (err){
+        console.log(err)
+      }
+
+    }
+
+    const handleCommentUnlike = async () => {
+      try {
+        await axiosRes.delete(`/comment-likes/${comment_like_id}/`);
+        setComments((prevComments) => ({
+          ...prevComments,
+          results: prevComments.results.map((comment) => {
+            return comment.id === id
+              ? { ...comment, comment_likes_count: comment_likes_count - 1, comment_like_id: null }
+              : comment;
+          }),
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    };
   return (
     <div className={styles.container}>
         <Link to={`/profiles/${profile_id}`} className={styles.profile}>
@@ -59,7 +94,7 @@ const Comment = (props) => {
                     edit <i class="fa-solid fa-pen-to-square"></i>
                   </Dropdown.Item>
                   <Dropdown.Item
-                    onClick={handleDelete}>
+                    onClick={(handleDelete)}>
                     delete <i class="fa-solid fa-trash"></i>
                   </Dropdown.Item>
                 </Dropdown.Menu>
@@ -80,7 +115,30 @@ const Comment = (props) => {
           )}
         </div>
         <hr/>
-        <small>{updated_at}</small>
+        <div className={styles.icon}>
+                {is_owner? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't like your own comment!</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          ): comment_like_id? <span onClick={handleCommentUnlike}>
+            <i class="fa-solid fa-heart"></i>
+          </span> : currentUser? <span onClick={handleCommentLike}>
+            <i class="fa-regular fa-heart"></i>
+          </span>: <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to like comments</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger> }
+
+            
+            {comment_likes_count}
+          </div>
+          <br/>
+          <small>{updated_at}</small>
         
     </div>
   )

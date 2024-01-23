@@ -27,3 +27,9 @@
     border: none !important;
     box-shadow: none !important;
 }
+
+.icon{
+    color: black;
+    display: inline-block;
+    padding-right: 1rem;
+}
