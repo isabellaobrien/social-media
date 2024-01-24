@@ -165,14 +165,17 @@ const Comment = (props) => {
             </div>
           <br/>
           <small>{updated_at}</small>
-          {currentUser && showReplyForm? (
-          <CommentReplyForm
+          {showReplyForm? (
+          <>
+            <CommentReplyForm
             profile_id={profile_id}
             profile_image={profile_image}
             comment={id}
             setComments={setComments}
             setReply={setReply}
-          />) : reply.results.length? (
+          />
+          </>
+          ) : reply.results.length? (
             reply.results.map((rep) => (
               <Reply 
                 key={rep.id} 
