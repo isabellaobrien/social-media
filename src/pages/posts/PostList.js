@@ -7,6 +7,7 @@ import Asset from '../../components/Asset';
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
+import PopularProfiles from '../profiles/PopularProfiles';
 
 
 const PostList = ({ message, filter = "" }) => {
@@ -41,7 +42,7 @@ const PostList = ({ message, filter = "" }) => {
   return (
     <Row>
         <Col className="py-2 p-0 p-lg-2" lg={8}>
-            <p>popular profiles to follow on mobile</p>
+            <PopularProfiles mobile/>
             {/* <i class="fa-solid fa-magnifying-glass"></i> */}
             <Form onSubmit={(event) => event.preventDefault()}>
               <Form.Control
@@ -79,7 +80,7 @@ const PostList = ({ message, filter = "" }) => {
             </Container>
         </Col>
         <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-            <p>popular profiles to follow on desktop</p>
+            <PopularProfiles />
         </Col>
     </Row>
   )
