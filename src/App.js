@@ -25,13 +25,13 @@ function App() {
               <PostList message="No results found. Adjust the search keyword." />
             )}
           />
-          {/* <Route exact path="/feed" render={() => (
+          <Route exact path="/feed" render={() => (
               <PostList
                 message="No results found. Adjust the search keyword or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`}
               />
             )}
-          /> */}
+          />
           <Route exact path="/liked" render={() => (
               <PostList
                 message="No results found. Adjust the search keyword or like a post."

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../../styles/Comment.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { axiosRes, axiosReq } from '../../api/axiosDefault';
-import { Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import CommentEditForm from './CommentEditForm';
 import CommentReplyForm from './CommentReplyForm';
 import Reply from './Reply';
@@ -165,7 +165,7 @@ const Comment = (props) => {
             </div>
           <br/>
           <small>{updated_at}</small>
-          
+
           {currentUser && showReplyForm ? (
             <>
               <CommentReplyForm
@@ -185,6 +185,7 @@ const Comment = (props) => {
                   />
                 ))
               ): null}
+              <Button onClick={() => setShowReplyForm(false)}>hide</Button>
             </>
             ) : (
               null

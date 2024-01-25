@@ -34,11 +34,11 @@ const NavBar = () => {
       activeClassName={styles.active}
     > liked</NavLink>
 
-  {/* <NavLink 
+  <NavLink 
       to="/feed"
       className={styles.link} 
       activeClassName={styles.active}
-    > feed</NavLink> */}
+    > feed</NavLink>
   
   <NavLink 
       to="/"
