@@ -6,40 +6,12 @@ import { axiosRes } from '../../api/axiosDefault';
 import styles from '../../styles/CommentCreateForm.module.css'
 
 const CommentReplyForm = (props) => {
-    // const {post, setPost, setComments, profile_image, profile_id} = props;
-    // const [content, setContent] = useState("");
-
     const {comment, setComments, setReply, profile_image, profile_id} = props;
     const [content, setContent] = useState("");
 
     const handleChange = (event) => {
         setContent(event.target.value)
     }
-
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     try{
-    //         const {data} = await axiosRes.post("/comments/", {
-    //             content, 
-    //             post,
-    //         })
-    //         setComments((prevComments) => ({
-    //             ...prevComments,
-    //             results: [data, ...prevComments.results],
-    //         }));
-    //         setPost((prevPost) => ({
-    //             results: [
-    //                 {
-    //                     ...prevPost.results[0],
-    //                     comments_count: prevPost.results[0].comments_count + 1,
-    //                 },
-    //             ],
-    //         }))
-    //         setContent("");
-    //     }catch (err){
-    //         console.log(err)
-    //     }
-    // }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -80,6 +52,7 @@ const CommentReplyForm = (props) => {
             />
                 
         </Form.Group>
+        
         <Button  type="submit" className={`${styles.btn} btn d-block ml-auto`}>
             reply
         </Button>

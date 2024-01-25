@@ -165,40 +165,31 @@ const Comment = (props) => {
             </div>
           <br/>
           <small>{updated_at}</small>
-          {showReplyForm? (
-          <>
-            <CommentReplyForm
-            profile_id={profile_id}
-            profile_image={profile_image}
-            comment={id}
-            setComments={setComments}
-            setReply={setReply}
-          />
-          </>
-          ) : reply.results.length? (
-            reply.results.map((rep) => (
-              <Reply 
-                key={rep.id} 
-                {...rep}
+          
+          {currentUser && showReplyForm ? (
+            <>
+              <CommentReplyForm
+                profile_id={profile_id}
+                profile_image={profile_image}
+                comment={id}
                 setComments={setComments}
                 setReply={setReply}
               />
-            ))
-          ): null}
-          {/* {reply.results.length? (
-            reply.results.map((rep) => (
-              <Reply 
-                key={rep.id} 
-                {...rep}
-                setComments={setComments}
-                setReply={setReply}
-              />
-            ))
-          ) : currentUser ? (
-            <p>no replies yet, make one!</p>
-          ) : (
-            <p>no comments yet.</p>
-          )} */}
+              {reply.results.length? (
+                reply.results.map((rep) => (
+                  <Reply 
+                    key={rep.id} 
+                    {...rep}
+                    setComments={setComments}
+                    setReply={setReply}
+                  />
+                ))
+              ): null}
+            </>
+            ) : (
+              null
+            )}
+
     </div>
   )
 }
