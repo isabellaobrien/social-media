@@ -13,6 +13,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Post from '../posts/Post';
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import ProfileEditDropdown from "./ProfileEditDropdown";
+import styles from '../../styles/ProfilePage.module.css'
 
 
 function ProfilePage() {
@@ -50,12 +52,16 @@ function ProfilePage() {
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
+            className={styles.ProfileImage}
             roundedCircle
             src={profile?.image}
           />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">{profile?.owner}</h3>
+          <div className={styles.box}>
+            <h3 className="m-2">{profile?.owner}</h3>
+            {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+          </div>   
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.post_count}</div>

@@ -8,6 +8,7 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Comment from "../comments/Comment";
 import styles from '../../styles/PostPage.module.css'
+import PopularProfiles from "../profiles/PopularProfiles";
 
 
 
@@ -74,7 +75,7 @@ function PostPage() {
       </Col>
       <Col lg={4}>
         <Container className="d-none d-md-block">
-          popular people to follow
+          <PopularProfiles />
         </Container>
       </Col>
     </Row>
