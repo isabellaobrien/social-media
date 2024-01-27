@@ -55,7 +55,7 @@ const UsernameForm = () => {
                       onChange={(event) => setUsername(event.target.value)} 
                   />
           </Form.Group>
-          {errors?.title?.map((message, idx) => (
+          {errors?.username?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                   {message}
               </Alert>

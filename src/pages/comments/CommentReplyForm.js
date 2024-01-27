@@ -39,7 +39,7 @@ const CommentReplyForm = (props) => {
     }
   return (
     <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="reply">
             <Form.Label>
                 <Link to={`/profiles/${profile_id}`}>
                     <Avatar src={profile_image} />

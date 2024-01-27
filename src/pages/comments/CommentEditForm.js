@@ -35,7 +35,7 @@ const CommentEditForm = (props) => {
     }
   return (
     <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="comment">
             <Form.Control 
                 as="textarea"
                 onChange={handleChange}
