@@ -21,7 +21,7 @@
     background-color: transparent !important;
     border: none;
     color: black;
-    background-color: #A5A58D !important;
+    background-color: #C04000 !important;
 }
 .dropdown:focus{
     border: none !important;
@@ -36,4 +36,14 @@
 
 .link{
     color: black; 
+}
+
+.btn{
+    background-color: #7B403B;
+    color: white;
+    border: brown;
+}
+.btn:hover{
+    background-color: #C19A6B;
+    color: black;
 }

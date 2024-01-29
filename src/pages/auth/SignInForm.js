@@ -75,7 +75,7 @@ const SignInForm = () => {
                         </Alert>
                     ))}
 
-                    <div className={styles.center}>
+                    <div className={styles.btn_center}>
                         <Button className={styles.btn} type="submit">
                             Sign in
                         </Button>

@@ -1,10 +1,11 @@
 .container{
-    background-color: #EDDCD2;
+    background-color: #A5A58D;
     padding: 10%;
 }
 .center{
     position: static !important;
     margin: auto;
+    padding-bottom: 20%;
 }
 
 .title{
@@ -24,12 +25,13 @@
     color: black;
 }
 .link:hover{
-    color: brown;
+    color: white;
     text-decoration: none;
 }
 
 .link_container{
     padding-top: 1rem;
+    text-align: center;
 }
 
 .btn{
@@ -41,6 +43,6 @@
     background-color: #C19A6B;
     color: black;
 }
-.center{
+.btn_center{
     text-align: center;
 }

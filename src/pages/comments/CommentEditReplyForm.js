@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-import Avatar from '../../components/Avatar';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../../api/axiosDefault';
-import styles from '../../styles/CommentCreateForm.module.css'
+import styles from '../../styles/PostCreateForm.module.css'
 
 const CommentEditReplyForm = (props) => {
-    const {id, content, setShowReplyEditForm, setReply, profile_id, profile_image} = props;
+    const {id, content, setShowReplyEditForm, setReply} = props;
     const [formContent, setFormContent] = useState(content);
     
 
@@ -38,12 +36,8 @@ const CommentEditReplyForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+        <br/>
         <Form.Group controlId="reply">
-            <Form.Label>
-                <Link to={`/profiles/${profile_id}`}>
-                    <Avatar src={profile_image} />
-                </Link>
-            </Form.Label>
             <Form.Control 
                 as="textarea"
                 onChange={handleChange}
@@ -51,12 +45,19 @@ const CommentEditReplyForm = (props) => {
             />
                 
         </Form.Group>
-        <Button className={styles.btn} onClick={() => setShowReplyEditForm(false)}>
-            cancel
-        </Button>
-        <Button  type="submit" className={styles.btn}>
-            save
-        </Button>
+        <div className={styles.btn_center}>
+            <div className={styles.btn_container}>
+                <Button className={styles.btn} onClick={() => setShowReplyEditForm(false)}>
+                    cancel
+                </Button>
+            </div>
+
+            <div className={styles.btn_container}>
+                <Button  type="submit" className={styles.btn}>
+                    save
+                </Button>
+            </div>
+        </div>
     </Form>
   )
 }

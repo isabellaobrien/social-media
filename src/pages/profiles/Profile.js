@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../../components/Avatar';
 import { Button } from 'react-bootstrap';
 import {useSetProfileData} from '../../contexts/ProfileDataCotext'
+import styles from '../../styles/CommentCreateForm.module.css'
 
 const Profile = (props) => {
     const {profile, mobile, imageSize} = props;
@@ -27,9 +28,9 @@ const Profile = (props) => {
         <div className={`text-right ${!mobile && "ml-auto"}`}>
             {!mobile && currentUser && !is_owner && (
                 following_id ? (
-                    <Button onClick={() => handleUnfollow(profile)}>unfollow</Button>
+                    <Button onClick={() => handleUnfollow(profile)} className={styles.btn}>unfollow</Button>
                 ) : (
-                    <Button onClick={() => handleFollow(profile)}>follow</Button>
+                    <Button onClick={() => handleFollow(profile)} className={styles.btn}>follow</Button>
                 )
             )}
 

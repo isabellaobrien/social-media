@@ -166,6 +166,7 @@ const Comment = (props) => {
           <br/>
           <small>{updated_at}</small>
 
+
           {currentUser && showReplyForm ? (
             <>
               <CommentReplyForm
@@ -185,7 +186,7 @@ const Comment = (props) => {
                   />
                 ))
               ): null}
-              <Button onClick={() => setShowReplyForm(false)}>hide</Button>
+              <Button onClick={() => setShowReplyForm(false)} className={styles.btn}>hide</Button>
             </>
             ) : (
               null

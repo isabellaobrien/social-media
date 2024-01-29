@@ -1,102 +1,118 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Share
 
-Welcome,
+Share is a social media app, where users can share all aspects of their  life and interact with other users. Users can register for an account which gives them access to the full functionality of the app(list full functionality of the app).
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.  
-DO NOT use this template if you are using the Gitpod IDE. Use the following command instead:  
-`npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm`
+## Features:
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **31st August, 2023**
+### Navigation:
+    * The navigation bar is situated at the top of each page and contains the website logo which links to the home page.
+    The navigation bar also contains links to the add post, home, liked, feed, sign out and profile (if the user is logged in). The navbar contains links to home, sign in and sign up (if the user is not logged in).
 
-## Codeanywhere Reminders
+    * The navigation bar gives the user easy access to each part of the website, on all devices.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Home page / landing page:
+    * The landing page contains a list of all the posts underneath the search bar.Each post contains: the user's profile, an image  or  default placeholder image, followed by a like and a comment button,  the title , the post’s content , and the post’s date .
 
-To log into the Heroku toolbelt CLI:
+### Post page
+    * Once you click the post image or comment button you reach the post  page. And the comment section can be accessed. 
+    * On desktops the popular profiles can be seen.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Comment section
+    * If the user is not logged in, there’ll be a message letting them know to login.
+    * If the user is logged in and there are no comments the user there will be a message suggesting that the user leave one via a form. If there are any comments they will appear under the form. 
+    * Each comment is composed of: profile picture and username, the comment, the like and reply buttons and the date. 
+    * The comment owner can edit( takes the user to the edit form)  and delete ( removes the comment from the comment section )the comment via a drop down menu. 
+    * The edit form is pre-filled with the comment content and button to cancel(go back to the comment section without making an edit ) and a save button. 
+    * Via the like button the user can like and unlike comments consequently the like count will go up and down by one. And the icon will change from outline to filled and vice versa.
+    * Once the reply button is clicked the comment reply form appears and all the previous replies to the comment appear if there are any.
+    * The comment owner can edit( takes the user to the edit form)  and delete ( removes the comment from the comment section )the reply via a drop down menu. 
+    * The edit form is pre-filled with the reply  content and button to cancel(go back to the comment section without making an edit ) and a save button. 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Popular profiles 
+    * The popular profiles section appears on the home page, the post page and the profile page on the desktop view .
+    * On mobile the popular profiles section only appears at the top of the home page. 
+    * The section contains profiles to follow and unfollow via the follow/unfollow buttons .
 
----
+### Profile page
+    * The profile page is reached via the link in the navbar or by clicking any of the profile pictures around the app.  
+    * The profile page contains a section about the user:  large profile picture, the number of posts a user has made, the number of followers the user has and the number of profiles the user follows. On the same page there’s a list of posts made by the user. 
+    * The profile owner can edit their profile picture, username and password via a drop down menu. 
+    * The edit forms are pre-filled  and there are buttons to cancel(go back to the comment section without making an edit ) and a save button. 
 
-Happy coding!
+### Register
+    * It allows the user to sign up for an account  on share.
+    * The user will be asked to provide their username, password and to confirm their password. 
+    * The registration form gives the user the chance to join share and  have full access to the app.
 
-# Getting Started with Create React App
+### Login
+    * It allows the user to login to share  and access their profile.
+    * Once the user has logged in, the user has access to all the navbar links ( which are…)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Add  post page 
+    * It allows the user to create a post. Each post can contain a title, image and content. If an image isn’t provided there’ll be a default.
 
-## Available Scripts
+### Edit  post page 
+    * It allows the user to edit  a post of theirs. Any field of the post can be updated.
 
-In the project directory, you can run:
+### Delete post
+    * It allows a user to delete a post.
 
-### `npm install`
 
-Installs the required npm packages.
+| action | expected behaviour | pass/fail |
 
-### `npm start`
+| Enter URL in browser |the landing page of the website should display on the screen | pass |
+| Click Home on the navigation bar | the home page should show up on the screen | pass |
+| Click the logo on the navbar | the home page should appear | pass |
+| Click add post on the navigation bar | The form to add a post should appear | pass |
+| Click liked on the navigation bar | All the posts that have been liked by a user should appear | pass |
+| Click feed on the navbar | all the posts by users the user follows should appear | pass |
+| Click the profile on the nav bar | the user should be redirected to their profile page | pass |
+| Click sign out on the navigation bar | You should be redirected to the home page. You’ll only be able to see “sign in”, “sign up”, and home. | pass |
+| (logged out) Click Sign up. | You should be redirected to a registration form. | pass |
+| Enter URL in browser |the landing page of the website should display on the screen | pass |
+| Click Sign in (logged out) | You should be redirected to a login form. | pass |
+| Click the dropdown in the user’s profile page. | Three options should appear: edit profile, edit username and change password. | pass |
+| Click the ‘follow’ button on a post. | The follow button will become an unfollow button. | pass |
+| Click the “like” button under the post or comment | The like count should go up. If the button gets clicked again the count should go down. | pass |
+| Click the comment button | you should be redirected to post page where the comment section can be found | pass |
+| If you create a comment via the form and click the comment button | the comment count should increase by one. | pass |
+| Click the dropdown near the username | Two options should appar: “edit”, “delete”. | pass |
+| Click the “edit” link. | The user should be redirected to the edit post form | pass |
+| Click the edit button  | the post should appear edited | pass |
+| Click the cancel button | the user should be taken back to the post | pass |
+| Click the “delete link” | the post, comment or reply should be removed from the app | pass |
+| Click the reply icon | the reply form should appear and if there are any previous replies they’ll appear too. | pass |
+| Click the hide button | the reply form should disappear and if there are any previous replies they’ll disappear too | pass |
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
+## Deployment(front end)
+steps:
+* I made sure the libraries used were stored in the requirements.txt file.
+* I clicked on "create an app" in heroku, I named the app and selected my region.
+* I went to settings and added the config vars I needed.
+* I added python and node.js as buildpacks.
+* I then went to deploy, connected to github.
+*  I then manually deploy my project.
+(cloudinary, elephantsql, key)
+Connecting backend to frontend —axios.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Deployment (backend)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Credits wit links
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

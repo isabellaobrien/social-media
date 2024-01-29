@@ -1,6 +1,7 @@
 .post{
     width: 100%;
     border: none;
+    padding-top: 2%;
 }
 
 .more{
@@ -13,7 +14,7 @@
     background-color: transparent !important;
     border: none;
     color: black;
-    background-color: #A5A58D !important;
+    background-color: #C04000 !important;
 }
 .dropdown:focus{
     border: none !important;
@@ -42,5 +43,8 @@
     color: black;
 }
 
+.image{
+    padding-top: 2%;
+}
 
 

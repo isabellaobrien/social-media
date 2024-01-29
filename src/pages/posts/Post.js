@@ -101,7 +101,7 @@ const Post = (props) => {
             </div>
           
             
-            <Link to={`/posts/${id}`}>
+            <Link to={`/posts/${id}`} className={styles.image}>
                 <Card.Img alt={title} src={image} />
             </Link>
 
@@ -136,15 +136,17 @@ const Post = (props) => {
               </Link>
               {comments_count}
             </div>
+            <hr/>
             
 
-                <Card.Title>{title}</Card.Title>
+                <Card.Title><h4>{title}</h4></Card.Title>
 
                 <Card.Text>{content}</Card.Text>
 
-                <Card.Text>{updated_at}</Card.Text>
+                <Card.Text><small>{updated_at}</small></Card.Text>
             </Card.Body>
         </Card>
+        <br/>
     </div>
   )
 }

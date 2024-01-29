@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-import Avatar from '../../components/Avatar';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../../api/axiosDefault';
 import styles from '../../styles/CommentCreateForm.module.css'
 
 const CommentReplyForm = (props) => {
-    const {comment, setComments, setReply, profile_image, profile_id} = props;
+    const {comment, setComments, setReply} = props;
     const [content, setContent] = useState("");
 
     const handleChange = (event) => {
@@ -38,17 +36,15 @@ const CommentReplyForm = (props) => {
         }
     }
   return (
-    <Form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+        <br/>
+        <Form onSubmit={handleSubmit}>
         <Form.Group controlId="reply">
-            <Form.Label>
-                <Link to={`/profiles/${profile_id}`}>
-                    <Avatar src={profile_image} />
-                </Link>
-            </Form.Label>
             <Form.Control 
                 as="textarea"
                 onChange={handleChange}
                 value={content} 
+                className={styles.input}
             />
                 
         </Form.Group>
@@ -57,6 +53,7 @@ const CommentReplyForm = (props) => {
             reply
         </Button>
     </Form>
+    </div>
   )
 }
 

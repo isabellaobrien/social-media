@@ -74,7 +74,7 @@ function PostPage() {
         </Container>
       </Col>
       <Col lg={4}>
-        <Container className="d-none d-md-block">
+        <Container className={`${styles.container} d-none d-md-block`}>
           <PopularProfiles />
         </Container>
       </Col>

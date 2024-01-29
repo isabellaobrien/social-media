@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import {Form, Button, Alert, Row, Col, Container, Image} from "react-bootstrap"
-import styles from "../../styles/SignUpForm.module.css";
+import {Form, Button, Alert, Row, Col, Container,} from "react-bootstrap"
+import styles from "../../styles/SignInForm.module.css";
 import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
-import landing from "../../assets/landing.jpg"
+// import landing from "../../assets/landing.jpg"
 
 const SignUpForm = () => {
     const [signUpData, setSignUpData] = useState({
@@ -37,7 +37,7 @@ const SignUpForm = () => {
 
   return (
     <Row>
-        <Col md={6}>
+        <Col md={6} className={styles.center}>
         <Container className={styles.container}>
             <p className={styles.title}>Sign up</p>
             <Form onSubmit={handleSubmit}>
@@ -92,7 +92,7 @@ const SignUpForm = () => {
                     </Alert>
                 ))}
 
-                <div className={styles.center}>
+                <div className={styles.btn_center}>
                     <Button className={styles.btn} type="submit">
                         Sign up
                     </Button>
@@ -108,13 +108,6 @@ const SignUpForm = () => {
                     </Link>
                 </div>
             </Form>
-        </Container>
-        </Col>
-        <Col md={6}>
-        <Container className={`d-none d-md-block ${styles.img}`}>
-            <Image
-            src={landing} alt="sign up image" height={400}
-            />
         </Container>
         </Col>
     </Row>

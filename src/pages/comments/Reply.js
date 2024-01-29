@@ -47,11 +47,10 @@ const Reply = (props) => {
   }
   return (
     <div>
-        <Link to={`/profiles/${profile_id}`}>
+        <Link to={`/profiles/${profile_id}`} className={styles.profile}>
           <Avatar src={profile_image} />
+          {owner}
         </Link>
-
-          <span>{owner}</span>
           <div className={styles.more}>
             {is_owner && (<Dropdown drop="up">
               <Dropdown.Toggle className={styles.dropdown} id="dropdown-basic">
@@ -69,6 +68,7 @@ const Reply = (props) => {
               </Dropdown>)}
         </div>
         <div>
+          <br/>
           {showReplyEditForm? (
             <CommentEditReplyForm
               id={id} 

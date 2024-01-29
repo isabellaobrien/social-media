@@ -8,6 +8,7 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import PopularProfiles from '../profiles/PopularProfiles';
+import styles from '../../styles/PostPage.module.css'
 
 
 const PostList = ({ message, filter = "" }) => {
@@ -44,13 +45,13 @@ const PostList = ({ message, filter = "" }) => {
         <Col className="py-2 p-0 p-lg-2" lg={8}>
             <PopularProfiles mobile/>
             {/* <i class="fa-solid fa-magnifying-glass"></i> */}
-            <Form onSubmit={(event) => event.preventDefault()}>
+            <Form onSubmit={(event) => event.preventDefault()} className={styles.search_box}>
               <Form.Control
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               type="text"
               placeholder='search posts'
-              className="mr-sm-2"
+              className={styles.search}
               />
             </Form>
             <Container>
@@ -80,7 +81,10 @@ const PostList = ({ message, filter = "" }) => {
             </Container>
         </Col>
         <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-            <PopularProfiles />
+            <div className={styles.container}>
+              <PopularProfiles />
+            </div>
+
         </Col>
     </Row>
   )
