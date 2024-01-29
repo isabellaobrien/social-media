@@ -5,61 +5,61 @@ Share is a social media app, where users can share all aspects of their  life an
 ## Features:
 
 ### Navigation:
-    * The navigation bar is situated at the top of each page and contains the website logo which links to the home page.
-    The navigation bar also contains links to the add post, home, liked, feed, sign out and profile (if the user is logged in). The navbar contains links to home, sign in and sign up (if the user is not logged in).
+* The navigation bar is situated at the top of each page and contains the website logo which links to the home page.
+The navigation bar also contains links to the add post, home, liked, feed, sign out and profile (if the user is logged in). The navbar contains links to home, sign in and sign up (if the user is not logged in).
 
-    * The navigation bar gives the user easy access to each part of the website, on all devices.
+* The navigation bar gives the user easy access to each part of the website, on all devices.
 
 ### Home page / landing page:
-    * The landing page contains a list of all the posts underneath the search bar.Each post contains: the user's profile, an image  or  default placeholder image, followed by a like and a comment button,  the title , the post’s content , and the post’s date .
+* The landing page contains a list of all the posts underneath the search bar.Each post contains: the user's profile, an image  or  default placeholder image, followed by a like and a comment button,  the title , the post’s content , and the post’s date .
 
 ### Post page
-    * Once you click the post image or comment button you reach the post  page. And the comment section can be accessed. 
-    * On desktops the popular profiles can be seen.
+* Once you click the post image or comment button you reach the post  page. And the comment section can be accessed. 
+* On desktops the popular profiles can be seen.
 
 ### Comment section
-    * If the user is not logged in, there’ll be a message letting them know to login.
-    * If the user is logged in and there are no comments the user there will be a message suggesting that the user leave one via a form. If there are any comments they will appear under the form. 
-    * Each comment is composed of: profile picture and username, the comment, the like and reply buttons and the date. 
-    * The comment owner can edit( takes the user to the edit form)  and delete ( removes the comment from the comment section )the comment via a drop down menu. 
-    * The edit form is pre-filled with the comment content and button to cancel(go back to the comment section without making an edit ) and a save button. 
-    * Via the like button the user can like and unlike comments consequently the like count will go up and down by one. And the icon will change from outline to filled and vice versa.
-    * Once the reply button is clicked the comment reply form appears and all the previous replies to the comment appear if there are any.
-    * The comment owner can edit( takes the user to the edit form)  and delete ( removes the comment from the comment section )the reply via a drop down menu. 
-    * The edit form is pre-filled with the reply  content and button to cancel(go back to the comment section without making an edit ) and a save button. 
+* If the user is not logged in, there’ll be a message letting them know to login.
+* If the user is logged in and there are no comments the user there will be a message suggesting that the user leave one via a form. If there are any comments they will appear under the form. 
+* Each comment is composed of: profile picture and username, the comment, the like and reply buttons and the date. 
+* The comment owner can edit( takes the user to the edit form)  and delete ( removes the comment from the comment section )the comment via a drop down menu. 
+* The edit form is pre-filled with the comment content and button to cancel(go back to the comment section without making an edit ) and a save button. 
+* Via the like button the user can like and unlike comments consequently the like count will go up and down by one. And the icon will change from outline to filled and vice versa.
+* Once the reply button is clicked the comment reply form appears and all the previous replies to the comment appear if there are any.
+* The comment owner can edit( takes the user to the edit form)  and delete ( removes the comment from the comment section )the reply via a drop down menu. 
+* The edit form is pre-filled with the reply  content and button to cancel(go back to the comment section without making an edit ) and a save button. 
 
 ### Popular profiles 
-    * The popular profiles section appears on the home page, the post page and the profile page on the desktop view .
-    * On mobile the popular profiles section only appears at the top of the home page. 
-    * The section contains profiles to follow and unfollow via the follow/unfollow buttons .
+* The popular profiles section appears on the home page, the post page and the profile page on the desktop view .
+* On mobile the popular profiles section only appears at the top of the home page. 
+* The section contains profiles to follow and unfollow via the follow/unfollow buttons .
 
 ### Profile page
-    * The profile page is reached via the link in the navbar or by clicking any of the profile pictures around the app.  
-    * The profile page contains a section about the user:  large profile picture, the number of posts a user has made, the number of followers the user has and the number of profiles the user follows. On the same page there’s a list of posts made by the user. 
-    * The profile owner can edit their profile picture, username and password via a drop down menu. 
-    * The edit forms are pre-filled  and there are buttons to cancel(go back to the comment section without making an edit ) and a save button. 
+* The profile page is reached via the link in the navbar or by clicking any of the profile pictures around the app.  
+* The profile page contains a section about the user:  large profile picture, the number of posts a user has made, the number of followers the user has and the number of profiles the user follows. On the same page there’s a list of posts made by the user. 
+* The profile owner can edit their profile picture, username and password via a drop down menu. 
+* The edit forms are pre-filled  and there are buttons to cancel(go back to the comment section without making an edit ) and a save button. 
 
 ### Register
-    * It allows the user to sign up for an account  on share.
-    * The user will be asked to provide their username, password and to confirm their password. 
-    * The registration form gives the user the chance to join share and  have full access to the app.
+* It allows the user to sign up for an account  on share.
+* The user will be asked to provide their username, password and to confirm their password. 
+* The registration form gives the user the chance to join share and  have full access to the app.
 
 ### Login
-    * It allows the user to login to share  and access their profile.
-    * Once the user has logged in, the user has access to all the navbar links ( which are…)
+* It allows the user to login to share  and access their profile.
+* Once the user has logged in, the user has access to all the navbar links ( which are…)
 
 ### Add  post page 
-    * It allows the user to create a post. Each post can contain a title, image and content. If an image isn’t provided there’ll be a default.
+* It allows the user to create a post. Each post can contain a title, image and content. If an image isn’t provided there’ll be a default.
 
 ### Edit  post page 
-    * It allows the user to edit  a post of theirs. Any field of the post can be updated.
+* It allows the user to edit  a post of theirs. Any field of the post can be updated.
 
 ### Delete post
-    * It allows a user to delete a post.
+* It allows a user to delete a post.
 
 
 | action | expected behaviour | pass/fail |
-
+|--------|--------------------|-----------|
 | Enter URL in browser |the landing page of the website should display on the screen | pass |
 | Click Home on the navigation bar | the home page should show up on the screen | pass |
 | Click the logo on the navbar | the home page should appear | pass |
