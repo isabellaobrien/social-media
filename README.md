@@ -2,6 +2,9 @@
 
 Share is a social media app, where users can share all aspects of their  life and interact with other users. Users can register for an account which gives them access to the full functionality of the app(list full functionality of the app).
 
+take a look at [Share](https://react-social-media-app-3baabd8c3ebb.herokuapp.com/).
+take a look at the [api](https://pp5-api-backend-822273010b59.herokuapp.com/)
+
 ## Features:
 
 ### Navigation:
@@ -84,21 +87,16 @@ The navigation bar also contains links to the add post, home, liked, feed, sign 
 | Click the reply icon | the reply form should appear and if there are any previous replies they’ll appear too. | pass |
 | Click the hide button | the reply form should disappear and if there are any previous replies they’ll disappear too | pass |
 
-## Deployment(front end)
+## Deployment(back end)
 steps:
 * I made sure the libraries used were stored in the requirements.txt file.
 * I clicked on "create an app" in heroku, I named the app and selected my region.
 * I went to settings and added the config vars I needed.
-* I added python and node.js as buildpacks.
 * I then went to deploy, connected to github.
 *  I then manually deploy my project.
-(cloudinary, elephantsql, key)
-Connecting backend to frontend —axios.
 
 
-## Deployment (backend)
 
-## Credits wit links
 
 
 
