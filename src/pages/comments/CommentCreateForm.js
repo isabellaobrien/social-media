@@ -53,9 +53,9 @@ const CommentCreateForm = (props) => {
             />
                 
         </Form.Group>
-        <Button  type="submit" className={`${styles.btn} btn d-block ml-auto`}>
+        <button  type="submit" className={`${styles.btn} btn d-block ml-auto`}>
             comment
-        </Button>
+        </button>
     </Form>
   )
 }

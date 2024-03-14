@@ -102,14 +102,14 @@ const PostCreateForm = () => {
 
             <div className={styles.btn_center}>
                 <div className={styles.btn_container}>
-                    <Button className={styles.btn} onClick={() => history.goBack()}>
+                    <button className={styles.btn} onClick={() => history.goBack()}>
                         cancel
-                    </Button>
+                    </button>
                 </div>
                 <div className={styles.btn_container}>
-                    <Button type="submit" className={styles.btn}>
+                    <button type="submit" className={styles.btn}>
                         post
-                    </Button>
+                    </button>
                 </div>
             </div>
             

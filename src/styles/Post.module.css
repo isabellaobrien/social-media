@@ -42,9 +42,15 @@
 .link{
     color: black;
 }
+.link:hover{
+    color: black;
+}
 
 .image{
     padding-top: 2%;
 }
-
+i{
+    font-size: x-large;
+    padding-right: 0.25rem;
+}
 

@@ -47,15 +47,15 @@ const CommentEditReplyForm = (props) => {
         </Form.Group>
         <div className={styles.btn_center}>
             <div className={styles.btn_container}>
-                <Button className={styles.btn} onClick={() => setShowReplyEditForm(false)}>
+                <button className={styles.btn} onClick={() => setShowReplyEditForm(false)}>
                     cancel
-                </Button>
+                </button>
             </div>
 
             <div className={styles.btn_container}>
-                <Button  type="submit" className={styles.btn}>
+                <button  type="submit" className={styles.btn}>
                     save
-                </Button>
+                </button>
             </div>
         </div>
     </Form>

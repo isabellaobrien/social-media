@@ -44,7 +44,6 @@ const PostList = ({ message, filter = "" }) => {
     <Row>
         <Col className="py-2 p-0 p-lg-2" lg={8}>
             <PopularProfiles mobile/>
-            {/* <i class="fa-solid fa-magnifying-glass"></i> */}
             <Form onSubmit={(event) => event.preventDefault()} className={styles.search_box}>
               <Form.Control
               value={query}

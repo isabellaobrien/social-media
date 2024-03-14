@@ -76,9 +76,9 @@ const SignInForm = () => {
                     ))}
 
                     <div className={styles.btn_center}>
-                        <Button className={styles.btn} type="submit">
+                        <button className={styles.btn} type="submit">
                             Sign in
-                        </Button>
+                        </button>
                     </div>
                     
                     {errors.non_field_errors?.map((message, idx) => (

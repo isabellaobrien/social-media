@@ -133,7 +133,7 @@ const Comment = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <p>{content}</p>
+            <p className={styles.content}>{content}</p>
           )}
         </div>
         <hr/>
@@ -186,7 +186,7 @@ const Comment = (props) => {
                   />
                 ))
               ): null}
-              <Button onClick={() => setShowReplyForm(false)} className={styles.btn}>hide</Button>
+              <button onClick={() => setShowReplyForm(false)} className={styles.btn}>hide</button>
             </>
             ) : (
               null

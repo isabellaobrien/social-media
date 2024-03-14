@@ -56,7 +56,7 @@ function PostPage() {
             post={id}
             setPost={setPost}
             setComments={setComments}
-          />) : comments.results.length? ("comments"): null}
+          />) : null}
           {comments.results.length? (
             comments.results.map((comment) => (
               <Comment 

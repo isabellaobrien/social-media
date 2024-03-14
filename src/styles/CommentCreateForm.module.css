@@ -2,8 +2,20 @@
     background-color: #7B403B;
     color: white;
     border: brown;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
 }
 .btn:hover{
     background-color: #C19A6B;
     color: black;
+}
+
+.btn_container{
+    display: inline-block;
+    padding-right: 2rem;
+}
+
+.btn_center{
+    text-align: center;
+    padding-top: 1rem;
 }

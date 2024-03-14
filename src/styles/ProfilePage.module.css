@@ -6,4 +6,22 @@
     height: 120px;
     width: 120px;
     margin: 4px;
-  }
+}
+
+.container{
+    border: 2px solid #C04000;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.btn{
+    background-color: #7B403B;
+    color: white;
+    border: brown;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+}
+.btn:hover{
+    background-color: #C19A6B;
+    color: black;
+}

@@ -43,12 +43,18 @@ const CommentEditForm = (props) => {
             />
                 
         </Form.Group>
-            <Button className={styles.btn} onClick={() => setShowEditForm(false)}>
-                cancel
-            </Button>
-            <Button  type="submit" className={styles.btn}>
-                save
-            </Button>
+            <div className={styles.btn_center}>
+                <div className={styles.btn_container}>
+                    <button className={styles.btn} onClick={() => setShowEditForm(false)}>
+                        cancel
+                    </button>
+                </div>
+                <div className={styles.btn_container}>
+                    <button type="submit" className={styles.btn}>
+                        edit
+                    </button>
+                </div>
+            </div>
     </Form>
   )
 }

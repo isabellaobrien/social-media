@@ -81,17 +81,17 @@ function ProfilePage() {
           {currentUser &&
             !is_owner &&
             (profile?.following_id ? (
-              <Button
+              <button className={styles.btn}
                 onClick={() => handleUnfollow(profile)}
               >
                 unfollow
-              </Button>
+              </button>
             ) : (
-              <Button
+              <button className={styles.btn}
                 onClick={() => handleFollow(profile)}
               >
                 follow
-              </Button>
+              </button>
             ))}
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
@@ -140,7 +140,9 @@ function ProfilePage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
+        <div className={styles.container}>
+          <PopularProfiles />
+        </div>
       </Col>
     </Row>
   );
