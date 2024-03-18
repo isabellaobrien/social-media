@@ -50,7 +50,7 @@ const Reply = (props) => {
   const handleReplyLike = async () => {
     try{
       const {data} = await axiosRes.post("/reply-likes/", {reply : id});
-      setComments((prevReply) => ({
+      setReply((prevReply) => ({
         ...prevReply,
         results: prevReply.results.map((reply) => {
           return reply.id === id ? 
@@ -67,7 +67,7 @@ const Reply = (props) => {
   const handleReplyUnlike = async () => {
     try {
       await axiosRes.delete(`/reply-likes/${reply_like_id}/`);
-      setComments((prevReply) => ({
+      setReply((prevReply) => ({
         ...prevReply,
         results: prevReply.results.map((reply) => {
           return reply.id === id
@@ -115,7 +115,9 @@ const Reply = (props) => {
           ) : (
             <p>{content}</p>
           )}
+          
         </div>
+        <hr/>
         <div className={styles.icon}>
                 {is_owner? (
             <OverlayTrigger
@@ -138,6 +140,7 @@ const Reply = (props) => {
             
             {reply_likes_count}
           </div>
+        
 
           <small>{updated_at}</small>
           <hr/>

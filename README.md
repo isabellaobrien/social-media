@@ -1,14 +1,57 @@
 # Share
 
-Share is a social media app, where users can share all aspects of their  life and interact with other users. Users can register for an account which gives them access to the full functionality of the app(list full functionality of the app).
+![web app on different screensizes](readme-images/amiresponsive.png)
 
-take a look at [Share](https://react-social-media-app-3baabd8c3ebb.herokuapp.com/).
-take a look at the [api](https://pp5-api-backend-822273010b59.herokuapp.com/)
+
+Share is a social media app where users can share images, thoughts and easily interact with other users. Users can register for an account which gives them access to the full functionality of the app. With a Share account a user can:
+* Create,edit and delete posts 
+* Like / unlike posts
+* Create, edit and delete comments on posts 
+* Like / unlike comments 
+* Create, edit and delete replies to comments  
+* See other users replies 
+* Like other users replies
+* Follow / unfollow users 
+* Have their own profile and image where users can find out a bit more about them.
+
+take a look at [Share](https://react-social-media-app-3baabd8c3ebb.herokuapp.com/)!
+
+take a look at the [api](https://pp5-api-backend-822273010b59.herokuapp.com/)!
+
+![website wireframe](readme-images/wireframe.jpg)
+![api model structure](readme-images/models.jpg)
+
+These are images of the initial wireframes for  my project. I created the wireframes using a platform called [Miro](https://miro.com/). The yellow post-it contain containing the app model structure for the api which was created using the django rest framework.
 
 ## Features:
 
-### Navigation:
+#### Sign up page:
+![sign up form](readme-images/signup.png)
+* It allows the user to sign up for an account  on share.
+* The user will be asked to provide their username, password and to confirm their password. 
+* The registration form gives the user the chance to join share and  have full access to the app.
+
+#### Sign in page 
+![sign in form](readme-images/signin.png)
+* It allows the user to login to share  and access their profile.
+* Once the user has logged in, the user has access to all the navbar links.
+
+#### Navigation
 * The navigation bar is situated at the top of each page and contains the website logo which links to the home page.
+* If the user is logged in the navigation bar contains links to the add post, home, liked, feed, sign out and user profile.
+![logged in navbar](readme-images/loggedin-navbar.png)
+* If the user is not logged in the navbar contains links to home, sign in and sign up.
+![logged out navbar](readme-images/loggedout-navbar.png)
+* The navigation bar gives the user easy access to each part of the website, on all devices.
+
+#### Home page
+* The home page can be accessed via the app logo or the home link in the navbar.
+* The home page contains a list of all the posts underneath the search bar.
+* Each post contains: the post author's profile image and name which links to their profile, a post image  or  default placeholder image, a like and a comment button,  the  post title , the post content , and the post date .
+[screenshots of homepage ]
+
+* #### Navigation:
+The navigation bar is situated at the top of each page and contains the website logo which links to the home page.
 The navigation bar also contains links to the add post, home, liked, feed, sign out and profile (if the user is logged in). The navbar contains links to home, sign in and sign up (if the user is not logged in).
 
 * The navigation bar gives the user easy access to each part of the website, on all devices.

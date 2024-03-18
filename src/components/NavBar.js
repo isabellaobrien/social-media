@@ -24,7 +24,7 @@ const NavBar = () => {
       to="/posts/add"
       className={styles.link} 
       activeClassName={styles.active}
-    > add post</NavLink>
+    >add post</NavLink>
   </>
 
   const loggedInIcons = <>
@@ -32,25 +32,25 @@ const NavBar = () => {
       to="/liked"
       className={styles.link} 
       activeClassName={styles.active}
-    > liked</NavLink>
+    >liked</NavLink>
 
   <NavLink 
       to="/feed"
       className={styles.link} 
       activeClassName={styles.active}
-    > feed</NavLink>
+    >feed</NavLink>
   
   <NavLink 
       to="/"
       onClick={handleSignOut}
       className={styles.link} 
-    > sign out</NavLink>
+    >sign out</NavLink>
 
   <NavLink 
       to={`/profiles/${currentUser?.profile_id}`}
       className={styles.profile} 
     >
-      <Avatar src={currentUser?.profile_image} text={currentUser?.username} height={40}/>
+      <Avatar src={currentUser?.profile_image} text="profile" height={40}/>
     </NavLink>
 
   </>
