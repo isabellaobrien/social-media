@@ -81,14 +81,11 @@ Each comment is composed of: comment author’s profile picture and username, th
 * The profile owner can edit their profile picture, username and password via a drop down menu. 
 * The edit form fields are  pre populated  and there are buttons to  cancel  or save changes. 
 
-
 #### Add post page 
 ![add post page](readme-images/add-post.png)
 * It allows the user to create a post. Each post can contain a title, image and content. If an image isn’t provided there’ll be a default.
 
-
-
-
+## Testing
 
 | action | expected behaviour | pass/fail |
 |--------|--------------------|-----------|
@@ -112,46 +109,70 @@ Each comment is composed of: comment author’s profile picture and username, th
 | Click the “edit” link | The user should be redirected to a form to edit the post, comment or reply | pass |
 | Click the save button |  the post, common or reply should appear edited | pass |
 | Click the cancel button | the user should be taken back to the post, comment or reply without making any changes | pass |
-| Click the “delete link”  | the post, comment or reply should be removed from the app
- | pass |
+| Click the “delete link”  | the post, comment or reply should be removed from the app | pass |
 | Click the reply icon underneath a comment  | the reply form should appear and if there are any previous replies they’ll appear too | pass |
 | Click the hide button | the reply form should disappear and if there are any previous replies they should disappear too | pass |
+
+## To implement in the future
+Unfortunately due to time constrains and lack of experinece I was unable to implement automated testing. Testing is a core part of any project, so it is definitely an aspect that I will implement in the future.
 
 ## React Components
 ![react component structure](readme-images/react-components.png)
 This is the component structure that was used to create the frontend. 
 App.js is the default  main component and is also the parent component of NavBar which contains Routes to various other components such as:
-PostList (allows the user to create a flow of posts in the home, liked and feed pages)
-SignInForm (allows the user to sign in to the app)
-SignUpForm (allows the user to sign up to the app)
-PostcreateForm (allows the user to create posts)
-PostPage (allows the user to see a post in more detail)
-PostEditForm (allows the user to edit one of their posts)
-ProfilePage (allows the user to view their own profile and other’s profiles)
-ProfileEditForm (allows the user to edit their profile)
-UsernameForm (allows the user to change their username)
-PasswordForm (allows the user to change their password)
-PopularProfiles(allows the user to view profiles and follow them)
-Post(creates the structure of the post)
-Avatar(contains the profile picture and is a link to the user’s profile)
-Asset(is used as a loading spinner and can output a message)
-Profile(creates the structure of the profile)
-Comment(creates the structure of the comment)
+* PostList (allows the user to create a flow of posts in the home, liked and feed pages)
+* SignInForm (allows the user to sign in to the app)
+* SignUpForm (allows the user to sign up to the app)
+* PostcreateForm (allows the user to create posts)
+* PostPage (allows the user to see a post in more detail)
+* PostEditForm (allows the user to edit one of their posts)
+* ProfilePage (allows the user to view their own profile and other’s profiles)
+* ProfileEditForm (allows the user to edit their profile)
+* UsernameForm (allows the user to change their username)
+* PasswordForm (allows the user to change their password)
+* PopularProfiles(allows the user to view profiles and follow them)
+* Post(creates the structure of the post)
+* Avatar(contains the profile picture and is a link to the user’s profile)
+* Asset(is used as a loading spinner and can output a message)
+* Profile(creates the structure of the profile)
+* Comment(creates the structure of the comment)
 
 ## Deployment(back end)
 steps:
 * I made sure the libraries used were stored in the requirements.txt file.
 * I clicked on "create an app" in heroku, I named the app and selected my region.
 * I went to settings and added the config vars I needed.
-* I then went to deploy, connected to github.
-*  I then manually deploy my project.
+* I then went to the deploy tab, connected my heroku project to my github repository.
+* I then manually deploy my project.
+
+## Deployment(front end)
+steps:
+* I clicked on "create an app" in heroku, I named the app and selected my region.
+* I then went to the deploy tab, connected my heroku project to my github repository.
+* I then manually deploy my project.
 
 
-
-
-
-
-
+## Credits
+* Stack overflow (to fix “error port is already in use”) : sudo fuser -k 8000/tcp 
+* Stack overflow (to fix “undo commit and redo”) :
+git commit -m "Something terribly misguided"
+git add .
+git commit -c ORIG_HEAD (edit file and close)
+* Reddit/stackoverflow changing css in bootstrap react : [Reddit](https://www.reddit.com/r/reactjs/comments/11ncbz3/react_bootstrap_overriding_custom_css/)
+[Stackoverflow](https://stackoverflow.com/questions/40738484/how-to-customise-react-bootstrap-components)
+* Colours: [goldenvineyardbranding](https://goldenvineyardbranding.com/blog/minimalist-color-palette/)
+[creativebooster](https://creativebooster.net/blogs/colors/shades-of-beige-color)
+[eggradients](https://www.eggradients.com/shades-of-brown)
+[coolers](https://coolors.co/)
+* Fonts: [google fonts](https://fonts.google.com/)
+* [React-bootstrap](https://react-bootstrap-v4.netlify.app/)
+* pictures: [pexels](https://www.pexels.com/)
+* Asset.js for the loading spinner from the code institute moments walkthrough.
+* Utils.js for infinite scroll fron the code institute moments walkthrough.
+* Avatar.js for the profile picture from the code institute moments walkthrough.
+* [Elephantsql](https://www.elephantsql.com/) as the database.
+* [Cloudinary](https://cloudinary.com/) for image storage.
+* Axios for connecting the frontend to the backend.
 
 
 
